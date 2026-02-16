@@ -225,11 +225,16 @@
         if (location) {
             html += `<p class="timp-event-location">📍 ${location}</p>`;
         }
-        
+
         if (description) {
-            html += `<p class="timp-event-description">${description}</p>`;
+            html += `<div class="timp-event-description-wrapper">
+                        <a href="#" class="timp-toggle-description">▼ Más información</a>
+                        <div class="timp-event-description" style="display: none;">
+                            <p>${description}</p>
+                        </div>
+                    </div>`;
         }
-        
+
         html += `<div class="timp-event-meta">`;
         
         if (duration) {
@@ -299,6 +304,28 @@
         $('#timp-next-week').on('click', function () {
             currentWeekOffset++;
             loadEvents(currentWeekOffset);
+        });
+
+        // Event delegation para los enlaces de "más información"
+        $('.timp-events-list').on('click', '.timp-toggle-description', function (e) {
+            e.preventDefault();
+            const $link = $(this);
+            const $description = $link.siblings('.timp-event-description');
+
+            // Verificar el estado actual antes del toggle
+            const isVisible = $description.is(':visible');
+
+            // Toggle de la descripción con callback para cambiar el texto
+            $description.slideToggle(300, function() {
+                // Cambiar el texto después de la animación
+                if (isVisible) {
+                    // Estaba visible, ahora está oculto
+                    $link.text('▼ Más información');
+                } else {
+                    // Estaba oculto, ahora está visible
+                    $link.text('▲ Ocultar información');
+                }
+            });
         });
 
         // Cargar eventos de la semana actual
