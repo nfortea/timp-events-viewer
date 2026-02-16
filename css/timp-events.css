@@ -1,0 +1,394 @@
+/* Contenedor principal */
+.timp-events-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Header con navegación */
+.timp-events-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.timp-week-title {
+    font-size: 24px;
+    margin: 0;
+    flex: 1;
+    text-align: center;
+    min-width: 250px;
+}
+
+#timp-current-week {
+    font-weight: 700;
+    /* color: #2271b1; */
+    display: block;
+}
+
+.timp-date-range {
+    font-size: 16px;
+    color: #666;
+    font-weight: 400;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Botones de navegación */
+.timp-nav-btn {
+    background-color: #2271b1;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.timp-nav-btn:hover {
+    background-color: #135e96;
+}
+
+.timp-nav-btn:active {
+    background-color: #0a4a78;
+}
+
+/* Estado de carga */
+.timp-events-loading {
+    text-align: center;
+    padding: 60px 40px;
+    font-size: 18px;
+    color: #666;
+}
+
+.timp-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #2271b1;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Mensajes de error */
+.timp-events-error {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Lista de eventos */
+.timp-events-list {
+    margin-top: 20px;
+}
+
+.no-events {
+    text-align: center;
+    padding: 60px 40px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 2px dashed #ddd;
+}
+
+.no-events p {
+    font-size: 18px;
+    color: #999;
+    margin: 0;
+}
+
+/* Grupo de eventos por día */
+.timp-day-group {
+    margin-bottom: 40px;
+}
+
+.timp-day-header {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    padding: 12px 0;
+    border-bottom: 3px solid #2271b1;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.timp-day-name {
+    font-weight: 700;
+}
+
+.timp-day-date {
+    font-size: 16px;
+    font-weight: 400;
+    color: #666;
+}
+
+.timp-day-events {
+    display: grid;
+    gap: 15px;
+}
+
+/* Tarjeta de evento */
+.timp-event-card {
+    display: flex;
+    gap: 20px;
+    background: white;
+    border: 1px solid #ddd;
+    border-left: 4px solid #2271b1;
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.timp-event-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    border-left-width: 6px;
+}
+
+.timp-event-card.cancelled {
+    opacity: 0.6;
+    border-left-color: #dc3545;
+    background-color: #f8f9fa;
+}
+
+.timp-event-card.full {
+    border-left-color: #ffc107;
+}
+
+/* Hora del evento */
+.timp-event-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: #2271b1;
+    min-width: 80px;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.time-start {
+    font-size: 20px;
+}
+
+.time-separator {
+    font-size: 12px;
+    margin: 2px 0;
+    color: #999;
+}
+
+.time-end {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Contenido del evento */
+.timp-event-content {
+    flex: 1;
+}
+
+.timp-event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.timp-event-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    flex: 1;
+}
+
+/* Badges de estado */
+.timp-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 12px;
+    white-space: nowrap;
+}
+
+.timp-badge-cancelled {
+    background-color: #dc3545;
+    color: white;
+}
+
+.timp-badge-full {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.timp-badge-warning {
+    background-color: #ff9800;
+    color: white;
+}
+
+/* Información de la sesión */
+.timp-event-activity,
+.timp-event-instructor,
+.timp-event-location {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.timp-event-description {
+    font-size: 14px;
+    color: #666;
+    margin: 10px 0;
+    line-height: 1.5;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+/* Meta información */
+.timp-event-meta {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.timp-meta-item {
+    font-size: 13px;
+    color: #666;
+    padding: 4px 10px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.timp-capacity.no-spaces {
+    background-color: #ffebee;
+    color: #c62828;
+    font-weight: 600;
+}
+
+.timp-capacity.low-spaces {
+    background-color: #fff3e0;
+    color: #e65100;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .timp-events-header {
+        flex-direction: column;
+    }
+
+    .timp-week-title {
+        order: -1;
+        font-size: 20px;
+    }
+
+    .timp-nav-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    #timp-prev-week {
+        order: 1;
+    }
+
+    #timp-next-week {
+        order: 2;
+    }
+
+    .timp-event-card {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .timp-event-time {
+        min-width: auto;
+        flex-direction: row;
+        gap: 8px;
+    }
+
+    .time-separator {
+        margin: 0;
+    }
+
+    .timp-day-header {
+        font-size: 18px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .timp-event-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .timp-events-container {
+        padding: 15px;
+    }
+
+    .timp-week-title {
+        font-size: 18px;
+    }
+
+    .timp-date-range {
+        font-size: 14px;
+    }
+
+    .timp-nav-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .timp-event-card {
+        padding: 15px;
+    }
+
+    .timp-event-title {
+        font-size: 16px;
+    }
+
+    .timp-event-meta {
+        gap: 8px;
+    }
+
+    .timp-meta-item {
+        font-size: 12px;
+        padding: 3px 8px;
+    }
+}
