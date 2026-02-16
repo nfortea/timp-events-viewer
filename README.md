@@ -392,6 +392,14 @@ Para añadir funcionalidades:
 - [Developers TIMP](https://developers.timp.pro)
 - [Centro de ayuda TIMP](https://help.timp.pro)
 
+## 👨‍💻 Créditos y Desarrollo
+
+**Desarrollador:** Nacho Fortea ([@nfortea](https://github.com/nfortea))
+**Empresa:** [Planea Soluciones](https://planeasoluciones.com)
+**Licencia:** GPL v2 or later
+
+Este plugin fue desarrollado como solución para integrar la API de TIMP con WordPress, facilitando la gestión y visualización de sesiones para centros deportivos.
+
 ---
 
 **Desarrollado con ❤️ para la comunidad de TIMP**
