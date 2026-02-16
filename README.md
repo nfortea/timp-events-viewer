@@ -1,7 +1,12 @@
-TIMP Events Viewer - Plugin para WordPress
+# TIMP Events Viewer - Plugin para WordPress
+
 Plugin oficial para mostrar sesiones/eventos de TIMP con navegación por semanas. Integración directa con la API de TIMP v1.
-📋 Estructura de Archivos
-Crea la siguiente estructura de carpetas en /wp-content/plugins/:
+
+## 📋 Estructura de Archivos
+
+Crea la siguiente estructura de carpetas en `/wp-content/plugins/`:
+
+```text
 timp-events-viewer/
 ├── timp-events-viewer.php  (archivo principal PHP)
 ├── css/
@@ -9,50 +14,54 @@ timp-events-viewer/
 ├── js/
 │   └── timp-events.js
 └── README.md
-🚀 Instalación
-Opción 1: Instalación Manual
+```
 
-Crea una carpeta llamada timp-events-viewer en /wp-content/plugins/
-Copia el archivo PHP principal en la raíz de la carpeta
-Crea las carpetas css y js
-Coloca los archivos CSS y JavaScript en sus respectivas carpetas
-Ve a Plugins en el panel de WordPress
-Activa el plugin "TIMP Events Viewer"
+## 🚀 Instalación
 
-Opción 2: Instalación por ZIP
+### Opción 1: Instalación Manual
 
-Crea un archivo ZIP con la estructura de carpetas mencionada
-Ve a Plugins > Añadir nuevo > Subir plugin
-Selecciona el archivo ZIP y haz clic en "Instalar ahora"
-Activa el plugin
+1. Crea una carpeta llamada `timp-events-viewer` en `/wp-content/plugins/`
+2. Copia el archivo PHP principal en la raíz de la carpeta
+3. Crea las carpetas `css` y `js`
+4. Coloca los archivos CSS y JavaScript en sus respectivas carpetas
+5. Ve a **Plugins** en el panel de WordPress
+6. Activa el plugin "TIMP Events Viewer"
 
-⚙️ Configuración
-Paso 1: Obtener credenciales de TIMP
+### Opción 2: Instalación por ZIP
 
-Crear cuenta de desarrollador:
+1. Crea un archivo ZIP con la estructura de carpetas mencionada
+2. Ve a **Plugins > Añadir nuevo > Subir plugin**
+3. Selecciona el archivo ZIP y haz clic en "Instalar ahora"
+4. Activa el plugin
 
-Ve a https://developers.timp.pro
-Regístrate con tu email y contraseña
-Crea una organización
+## ⚙️ Configuración
 
-Obtener API Access Key:
+### Paso 1: Obtener credenciales de TIMP
 
-En tu panel de desarrollador, copia tu API Access Key
-Esta clave identificará tu aplicación en cada llamada a la API
+#### Crear cuenta de desarrollador
 
-Autorizar tu centro:
+1. Ve a [developers.timp.pro](https://developers.timp.pro)
+2. Regístrate con tu email y contraseña
+3. Crea una organización
 
-El gestor del centro debe autorizar tu aplicación
-Esto se hace desde el panel de administración del centro en TIMP
-Una vez autorizado, obtendrás acceso a los datos del centro
+#### Obtener API Access Key
 
-✨ **Detección automática de centros**:
+1. En tu panel de desarrollador, copia tu **API Access Key**
+2. Esta clave identificará tu aplicación en cada llamada a la API
 
-El plugin detecta automáticamente los centros autorizados usando la API
-Ya no necesitas buscar manualmente el UUID del centro
-Simplemente selecciona tu centro de la lista desplegable
+#### Autorizar tu centro
 
-Paso 2: Configurar el Plugin
+1. El gestor del centro debe autorizar tu aplicación
+2. Esto se hace desde el panel de administración del centro en TIMP
+3. Una vez autorizado, obtendrás acceso a los datos del centro
+
+✨ **Detección automática de centros:**
+
+- El plugin detecta automáticamente los centros autorizados usando la API
+- Ya no necesitas buscar manualmente el UUID del centro
+- Simplemente selecciona tu centro de la lista desplegable
+
+### Paso 2: Configurar el Plugin
 
 1. Ve a **Ajustes > TIMP Events** en el panel de WordPress
 2. Introduce tu **API Access Key**
@@ -61,64 +70,84 @@ Paso 2: Configurar el Plugin
 5. Selecciona tu centro de la lista desplegable
 6. Guarda los cambios nuevamente
 
-📝 Uso
-Shortcode Básico
+## 📝 Uso
+
+### Shortcode Básico
+
 Para mostrar las sesiones en cualquier página o entrada:
+
+```
 [timp_events]
-Shortcode con Parámetros
+```
+
+### Shortcode con Parámetros
+
+```
 [timp_events limit="100"]
-Parámetros disponibles:
+```
 
-limit: Número máximo de sesiones a mostrar (por defecto: 100)
+**Parámetros disponibles:**
 
-🎨 Características
+- `limit`: Número máximo de sesiones a mostrar (por defecto: 100)
 
-✅ Navegación por semanas - Botones para avanzar y retroceder
-✅ Vista de semana actual - Muestra "Esta semana" por defecto
-✅ Agrupación por día - Organiza sesiones automáticamente
-✅ Diseño responsive - Funciona en móvil, tablet y desktop
-✅ Información completa - Muestra instructor, sala, duración, plazas
-✅ Indicadores visuales - Badges para sesiones completas o canceladas
-✅ Carga dinámica - AJAX sin recargar la página
-✅ Gestión de errores - Mensajes claros de error
+## 🎨 Características
 
-📊 Información Mostrada
+- ✅ Navegación por semanas - Botones para avanzar y retroceder
+- ✅ Vista de semana actual - Muestra "Esta semana" por defecto
+- ✅ Agrupación por día - Organiza sesiones automáticamente
+- ✅ Diseño responsive - Funciona en móvil, tablet y desktop
+- ✅ Información completa - Muestra instructor, sala, duración, plazas
+- ✅ Indicadores visuales - Badges para sesiones completas o canceladas
+- ✅ Carga dinámica - AJAX sin recargar la página
+- ✅ Gestión de errores - Mensajes claros de error
+- ✅ Descripciones expandibles - Muestra/oculta información adicional de cada sesión
+
+## 📊 Información Mostrada
+
 Para cada sesión se muestra:
 
-🕐 Hora de inicio y fin
-📋 Nombre de la sesión/actividad
-👤 Instructor/Monitor
-📍 Sala/Ubicación
-⏱️ Duración en minutos
-👥 Plazas disponibles/totales
-🚫 Estado (Activa, Completa, Cancelada)
+- 🕐 Hora de inicio y fin
+- 📋 Nombre de la sesión/actividad
+- 👤 Instructor/Monitor
+- 📍 Sala/Ubicación
+- ⏱️ Duración en minutos
+- 👥 Plazas disponibles/totales
+- 🚫 Estado (Activa, Completa, Cancelada)
+- ℹ️ Descripción expandible (si está disponible)
 
-🔧 API de TIMP - Detalles Técnicos
+## 🔧 API de TIMP - Detalles Técnicos
+
 El plugin utiliza la API REST de TIMP v1:
-Endpoints Utilizados
 
-1. **Obtener centros autorizados**
-   ```
-   GET https://api.timp.pro/api/timp/v1/branch_buildings
-   ```
+### Endpoints Utilizados
 
-2. **Obtener actividades de un centro**
-   ```
-   GET https://api.timp.pro/api/timp/v1/branch_buildings/{center_uuid}/activities
-   ```
+#### 1. Obtener centros autorizados
 
-3. **Obtener sesiones de una actividad**
-   ```
-   GET https://api.timp.pro/api/timp/v1/activities/{activity_uuid}/admissions?date_from=YYYY-MM-DD&date_to=YYYY-MM-DD
-   ```
+```http
+GET https://api.timp.pro/api/timp/v1/branch_buildings
+```
 
-Headers Requeridos
+#### 2. Obtener actividades de un centro
+
+```http
+GET https://api.timp.pro/api/timp/v1/branch_buildings/{center_uuid}/activities
+```
+
+#### 3. Obtener sesiones de una actividad
+
+```http
+GET https://api.timp.pro/api/timp/v1/activities/{activity_uuid}/admissions?date_from=YYYY-MM-DD&date_to=YYYY-MM-DD
+```
+
+### Headers Requeridos
+
 ```
 Api-Access-Key: {tu_api_key}
 Accept: application/timp.timp-v1
 ```
 
-Estructura de Respuesta - Centros
+### Estructura de Respuesta - Centros
+
 ```json
 [
   {
@@ -132,7 +161,8 @@ Estructura de Respuesta - Centros
 ]
 ```
 
-Estructura de Respuesta - Actividades
+### Estructura de Respuesta - Actividades
+
 ```json
 [
   {
@@ -145,7 +175,8 @@ Estructura de Respuesta - Actividades
 ]
 ```
 
-Estructura de Respuesta - Admissions (Sesiones)
+### Estructura de Respuesta - Admissions (Sesiones)
+
 ```json
 {
   "collection": [
@@ -164,10 +195,16 @@ Estructura de Respuesta - Admissions (Sesiones)
     "total_count": 8
   }
 }
-🎨 Personalización
-Modificar Estilos
-Edita el archivo css/timp-events.css para personalizar:
-css/* Cambiar color principal */
+```
+
+## 🎨 Personalización
+
+### Modificar Estilos
+
+Edita el archivo `css/timp-events.css` para personalizar:
+
+```css
+/* Cambiar color principal */
 .timp-nav-btn {
     background-color: #tu-color;
 }
@@ -176,147 +213,185 @@ css/* Cambiar color principal */
 .timp-event-title {
     font-size: 20px;
 }
-Añadir Campos Personalizados
-Si necesitas mostrar información adicional, edita la función renderEvent() en js/timp-events.js:
-javascript// Añadir un nuevo campo
+```
+
+### Añadir Campos Personalizados
+
+Si necesitas mostrar información adicional, edita la función `renderEvent()` en `js/timp-events.js`:
+
+```javascript
+// Añadir un nuevo campo
 if (event.tu_campo) {
     html += `<p class="timp-custom-field">🔸 ${event.tu_campo}</p>`;
 }
-🔍 Solución de Problemas
-Las sesiones no se cargan
-Problema: No aparecen eventos en la página
-Soluciones:
+```
 
-Verifica que la API Access Key sea correcta
-Asegúrate de que el centro haya autorizado tu aplicación
-Comprueba que el ID del Centro sea correcto
-Revisa la consola del navegador (F12) para ver errores JavaScript
-Comprueba los logs de WordPress en wp-content/debug.log
+## 🔍 Solución de Problemas
 
-Error: "API Access Key inválida"
-Problema: Mensaje de error de autenticación
-Soluciones:
+### Las sesiones no se cargan
 
-Copia de nuevo la API Key desde developers.timp.pro
-Asegúrate de no tener espacios al inicio o final
-Verifica que la organización esté activa
+**Problema:** No aparecen eventos en la página
 
-Error: "Centro no autorizado"
-Problema: El centro no ha dado permiso
-Soluciones:
+**Soluciones:**
 
-El gestor del centro debe ir a su panel de TIMP
-Buscar la sección de "Integraciones" o "API"
-Autorizar tu aplicación desde allí
+- Verifica que la API Access Key sea correcta
+- Asegúrate de que el centro haya autorizado tu aplicación
+- Comprueba que el ID del Centro sea correcto
+- Revisa la consola del navegador (F12) para ver errores JavaScript
+- Comprueba los logs de WordPress en `wp-content/debug.log`
 
-Los estilos no se aplican
-Problema: La página se ve sin formato
-Soluciones:
+### Error: "API Access Key inválida"
 
-Verifica que timp-events.css esté en la carpeta css/
-Limpia la caché del navegador (Ctrl + F5)
-Si usas un plugin de caché (WP Super Cache, W3 Total Cache), límpialo
-Verifica que no haya errores JavaScript que impidan cargar CSS
+**Problema:** Mensaje de error de autenticación
 
-Error de conexión
-Problema: No se puede conectar con la API
-Soluciones:
+**Soluciones:**
 
-Verifica que tu servidor permite conexiones HTTPS salientes
-Comprueba el firewall de tu servidor
-Contacta con tu proveedor de hosting si el problema persiste
+- Copia de nuevo la API Key desde developers.timp.pro
+- Asegúrate de no tener espacios al inicio o final
+- Verifica que la organización esté activa
 
-📱 Compatibilidad
-WordPress
+### Error: "Centro no autorizado"
 
-WordPress 5.0 o superior
-PHP 7.2 o superior
-jQuery (incluido por defecto en WordPress)
+**Problema:** El centro no ha dado permiso
 
-Navegadores
+**Soluciones:**
 
-Chrome (últimas 2 versiones)
-Firefox (últimas 2 versiones)
-Safari (últimas 2 versiones)
-Edge (últimas 2 versiones)
+- El gestor del centro debe ir a su panel de TIMP
+- Buscar la sección de "Integraciones" o "API"
+- Autorizar tu aplicación desde allí
 
-Dispositivos
+### Los estilos no se aplican
 
-Desktop (1200px+)
-Tablet (768px - 1199px)
-Mobile (320px - 767px)
+**Problema:** La página se ve sin formato
 
-🔐 Seguridad
+**Soluciones:**
 
-✅ Validación de nonce en todas las peticiones AJAX
-✅ Sanitización de datos de entrada
-✅ Escape de datos de salida
-✅ Autenticación mediante API Key
-✅ Permisos verificados en panel de administración
+- Verifica que `timp-events.css` esté en la carpeta `css/`
+- Limpia la caché del navegador (Ctrl + F5)
+- Si usas un plugin de caché (WP Super Cache, W3 Total Cache), límpialo
+- Verifica que no haya errores JavaScript que impidan cargar CSS
 
-📄 Licencia
+### Error de conexión
+
+**Problema:** No se puede conectar con la API
+
+**Soluciones:**
+
+- Verifica que tu servidor permite conexiones HTTPS salientes
+- Comprueba el firewall de tu servidor
+- Contacta con tu proveedor de hosting si el problema persiste
+
+## 📱 Compatibilidad
+
+### WordPress
+
+- WordPress 5.0 o superior
+- PHP 7.2 o superior
+- jQuery (incluido por defecto en WordPress)
+
+### Navegadores
+
+- Chrome (últimas 2 versiones)
+- Firefox (últimas 2 versiones)
+- Safari (últimas 2 versiones)
+- Edge (últimas 2 versiones)
+
+### Dispositivos
+
+- Desktop (1200px+)
+- Tablet (768px - 1199px)
+- Mobile (320px - 767px)
+
+## 🔐 Seguridad
+
+- ✅ Validación de nonce en todas las peticiones AJAX
+- ✅ Sanitización de datos de entrada
+- ✅ Escape de datos de salida
+- ✅ Autenticación mediante API Key
+- ✅ Permisos verificados en panel de administración
+
+## 📄 Licencia
+
 GPL v2 or later
-🤝 Soporte
-Soporte de TIMP
+
+## 🤝 Soporte
+
+### Soporte de TIMP
+
 Para problemas con la API de TIMP:
 
-Web: https://timp.pro
-Documentación: https://docs.timp.pro
-Desarrolladores: https://developers.timp.pro
-Centro de Ayuda: https://help.timp.pro
+- **Web:** [timp.pro](https://timp.pro)
+- **Documentación:** [docs.timp.pro](https://docs.timp.pro)
+- **Desarrolladores:** [developers.timp.pro](https://developers.timp.pro)
+- **Centro de Ayuda:** [help.timp.pro](https://help.timp.pro)
 
-Soporte del Plugin
+### Soporte del Plugin
+
 Para problemas específicos del plugin de WordPress, contacta con el desarrollador del plugin.
-🔄 Actualizaciones Futuras
+
+## 🔄 Actualizaciones Futuras
+
 Posibles mejoras para futuras versiones:
 
- Caché de sesiones para mejorar rendimiento
- Filtros por actividad/instructor/sala
- Búsqueda de sesiones
- Vista de calendario mensual
- Exportación a Google Calendar/iCal
- Reserva directa desde el plugin (requiere API v2)
- Widget para la barra lateral
- Múltiples centros en la misma página
- Modo lista vs modo calendario
- Notificaciones de cambios en sesiones
+- [ ] Caché de sesiones para mejorar rendimiento
+- [ ] Filtros por actividad/instructor/sala
+- [ ] Búsqueda de sesiones
+- [ ] Vista de calendario mensual
+- [ ] Exportación a Google Calendar/iCal
+- [ ] Reserva directa desde el plugin (requiere API v2)
+- [ ] Widget para la barra lateral
+- [ ] Múltiples centros en la misma página
+- [ ] Modo lista vs modo calendario
+- [ ] Notificaciones de cambios en sesiones
 
-📝 Notas Importantes
+## 📝 Notas Importantes
 
-Solo lectura: La API actual de TIMP es solo de lectura, no permite crear o modificar sesiones
-Límite de peticiones: Evita hacer demasiadas peticiones seguidas a la API
-Autorización necesaria: El centro debe autorizar explícitamente tu aplicación
-Datos en tiempo real: Los datos se obtienen directamente de TIMP en cada carga
+- **Solo lectura:** La API actual de TIMP es solo de lectura, no permite crear o modificar sesiones
+- **Límite de peticiones:** Evita hacer demasiadas peticiones seguidas a la API
+- **Autorización necesaria:** El centro debe autorizar explícitamente tu aplicación
+- **Datos en tiempo real:** Los datos se obtienen directamente de TIMP en cada carga
 
-🧪 Testing
+## 🧪 Testing
+
 Para probar el plugin:
 
-Instala en un entorno de pruebas primero
-Configura con credenciales de prueba si están disponibles
-Verifica que las sesiones se muestran correctamente
-Prueba la navegación entre semanas
-Verifica la visualización en diferentes dispositivos
-Comprueba el comportamiento con 0 sesiones
-Verifica los mensajes de error
+1. Instala en un entorno de pruebas primero
+2. Configura con credenciales de prueba si están disponibles
+3. Verifica que las sesiones se muestran correctamente
+4. Prueba la navegación entre semanas
+5. Verifica la visualización en diferentes dispositivos
+6. Comprueba el comportamiento con 0 sesiones
+7. Verifica los mensajes de error
 
-👨‍💻 Para Desarrolladores
-Hooks Disponibles
+## 👨‍💻 Para Desarrolladores
+
+### Hooks Disponibles
+
 El plugin no incluye hooks personalizados actualmente, pero puedes usar los filtros estándar de WordPress:
-php// Modificar la salida del shortcode
+
+```php
+// Modificar la salida del shortcode
 add_filter('timp_events_shortcode_output', function($output) {
     // Tu código aquí
     return $output;
 });
-Extender Funcionalidad
+```
+
+### Extender Funcionalidad
+
 Para añadir funcionalidades:
 
-Crea un plugin hijo que dependa de este
-Usa las acciones y filtros de WordPress
-No modifiques directamente los archivos del plugin
+1. Crea un plugin hijo que dependa de este
+2. Usa las acciones y filtros de WordPress
+3. No modifiques directamente los archivos del plugin
 
-🎓 Recursos Adicionales
+## 🎓 Recursos Adicionales
 
-Documentación oficial de WordPress
-REST API de TIMP
-Developers TIMP
-Centro de ayuda TIMP
+- [Documentación oficial de WordPress](https://wordpress.org/support/)
+- [REST API de TIMP](https://developers.timp.pro)
+- [Developers TIMP](https://developers.timp.pro)
+- [Centro de ayuda TIMP](https://help.timp.pro)
+
+---
+
+**Desarrollado con ❤️ para la comunidad de TIMP**
