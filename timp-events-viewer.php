@@ -2,10 +2,10 @@
 
 /**
  * Plugin Name: TIMP Events Viewer
- * Plugin URI: https://planeasoluciones.com
+ * Plugin URI: https://github.com/nfortea/timp-events-viewer/
  * Description: Muestra eventos de TIMP con navegación por semanas
  * Version: 1.0.3
- * Author: Planea Soluciones
+ * Author: Nacho Fortea
  * Author URI: https://planeasoluciones.com
  * License: GPL v2 or later
  * Text Domain: timp-events
