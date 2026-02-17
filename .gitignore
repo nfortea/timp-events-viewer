@@ -1,0 +1,22 @@
+# WordPress
+.htaccess
+wp-config.php
+wp-content/uploads/
+wp-content/cache/
+
+# Node modules (si usas npm)
+node_modules/
+package-lock.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

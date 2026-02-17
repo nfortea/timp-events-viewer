@@ -4,7 +4,7 @@
  * Plugin Name: TIMP Events Viewer
  * Plugin URI: https://github.com/nfortea/timp-events-viewer/
  * Description: Muestra eventos de TIMP con navegación por semanas
- * Version: 1.3.0
+ * Version: 1.3.1
  * Author: Nacho Fortea
  * Author URI: https://planeasoluciones.com
  * License: GPL v2 or later
@@ -180,37 +180,37 @@ class TIMP_Events_Plugin
                         </td>
                     </tr>
                     <?php if (!empty($centers) && is_array($centers)): ?>
-                    <tr>
-                        <th scope="row">
-                            <label for="timp_center_uuid">Centro</label>
-                        </th>
-                        <td>
-                            <select id="timp_center_uuid" name="timp_center_uuid" class="regular-text">
-                                <option value="">-- Selecciona un centro --</option>
-                                <?php foreach ($centers as $center): ?>
-                                    <option value="<?php echo esc_attr($center['uuid']); ?>"
-                                        <?php selected(get_option('timp_center_uuid'), $center['uuid']); ?>>
-                                        <?php echo esc_html($center['name']); ?>
-                                    </option>
-                                <?php endforeach; ?>
-                            </select>
-                            <p class="description">✅ Centros autorizados detectados automáticamente</p>
-                        </td>
-                    </tr>
+                        <tr>
+                            <th scope="row">
+                                <label for="timp_center_uuid">Centro</label>
+                            </th>
+                            <td>
+                                <select id="timp_center_uuid" name="timp_center_uuid" class="regular-text">
+                                    <option value="">-- Selecciona un centro --</option>
+                                    <?php foreach ($centers as $center): ?>
+                                        <option value="<?php echo esc_attr($center['uuid']); ?>"
+                                            <?php selected(get_option('timp_center_uuid'), $center['uuid']); ?>>
+                                            <?php echo esc_html($center['name']); ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <p class="description">✅ Centros autorizados detectados automáticamente</p>
+                            </td>
+                        </tr>
                     <?php else: ?>
-                    <tr>
-                        <th scope="row">
-                            <label for="timp_center_uuid">UUID del Centro</label>
-                        </th>
-                        <td>
-                            <input type="text"
-                                id="timp_center_uuid"
-                                name="timp_center_uuid"
-                                value="<?php echo esc_attr(get_option('timp_center_uuid')); ?>"
-                                class="regular-text">
-                            <p class="description">UUID del centro (se detectará automáticamente al guardar el API Key)</p>
-                        </td>
-                    </tr>
+                        <tr>
+                            <th scope="row">
+                                <label for="timp_center_uuid">UUID del Centro</label>
+                            </th>
+                            <td>
+                                <input type="text"
+                                    id="timp_center_uuid"
+                                    name="timp_center_uuid"
+                                    value="<?php echo esc_attr(get_option('timp_center_uuid')); ?>"
+                                    class="regular-text">
+                                <p class="description">UUID del centro (se detectará automáticamente al guardar el API Key)</p>
+                            </td>
+                        </tr>
                     <?php endif; ?>
                     <tr>
                         <th scope="row">
@@ -231,14 +231,14 @@ class TIMP_Events_Plugin
             </form>
 
             <?php if (!empty($api_key) && empty($centers)): ?>
-            <div class="card" style="margin-top: 20px; border-left: 4px solid #ffc107;">
-                <h2>🔄 Detectar Centros</h2>
-                <p>Después de guardar tu API Access Key, usa este botón para detectar los centros autorizados:</p>
-                <form method="post" action="">
-                    <?php wp_nonce_field('timp_fetch_centers_nonce'); ?>
-                    <input type="submit" name="timp_fetch_centers" class="button button-secondary" value="Obtener Centros Autorizados">
-                </form>
-            </div>
+                <div class="card" style="margin-top: 20px; border-left: 4px solid #ffc107;">
+                    <h2>🔄 Detectar Centros</h2>
+                    <p>Después de guardar tu API Access Key, usa este botón para detectar los centros autorizados:</p>
+                    <form method="post" action="">
+                        <?php wp_nonce_field('timp_fetch_centers_nonce'); ?>
+                        <input type="submit" name="timp_fetch_centers" class="button button-secondary" value="Obtener Centros Autorizados">
+                    </form>
+                </div>
             <?php endif; ?>
 
             <div class="card" style="margin-top: 20px;">
@@ -567,15 +567,13 @@ class TIMP_Events_Plugin
     ?>
         <div class="timp-events-container" data-limit="<?php echo esc_attr($atts['limit']); ?>">
             <div class="timp-events-header">
-                <button class="et_pb_button et_pb_bg_layout_light" id="timp-prev-week">&larr; Semana Anterior</button>
-                <!-- <button class="timp-nav-btn" id="timp-prev-week">&larr; Semana Anterior</button> -->
+                <button class="timp-nav-btn et_pb_button et_pb_bg_layout_light" id="timp-prev-week">&larr; Semana Anterior</button>
                 <h2 class="timp-week-title">
                     <span id="timp-current-week">Esta semana</span>
                     <br>
                     <span id="timp-date-range" class="timp-date-range"></span>
                 </h2>
-                <button class="et_pb_button et_pb_bg_layout_light" id="timp-next-week">Semana Siguiente &rarr;</button>
-                <!-- <button class="timp-nav-btn" id="timp-next-week">Semana Siguiente &rarr;</button> -->
+                <button class="timp-nav-btn et_pb_button et_pb_bg_layout_light" id="timp-next-week">Semana Siguiente &rarr;</button>
             </div>
 
             <div class="timp-day-selector"></div>
