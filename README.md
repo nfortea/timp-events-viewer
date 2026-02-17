@@ -427,7 +427,7 @@ Para añadir funcionalidades:
 ## 🎓 Recursos Adicionales
 
 - [Documentación oficial de WordPress](https://wordpress.org/support/)
-- [REST API de TIMP](https://developers.timp.pro)
+- [REST API de TIMP](https://docs.timp.pro)
 - [Developers TIMP](https://developers.timp.pro)
 - [Centro de ayuda TIMP](https://help.timp.pro)
 
