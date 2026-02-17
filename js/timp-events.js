@@ -275,7 +275,14 @@
                         '👥 ' + available + '/' + capacity + ' plazas</span>';
         }
 
-        html += '</div></div></div>';
+        html += '</div>';
+
+        // Botón Reservar (solo si hay URL configurada y la sesión no está completa ni cancelada)
+        if (timpEvents.bookingUrl && !isFull && !isCancelled) {
+            html += '<a href="' + timpEvents.bookingUrl + '" target="_blank" rel="noopener" class="timp-booking-btn">Reservar</a>';
+        }
+
+        html += '</div></div>';
 
         return html;
     }

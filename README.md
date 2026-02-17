@@ -68,7 +68,8 @@ timp-events-viewer/
 3. Haz clic en **Guardar cambios**
 4. Los centros autorizados se detectarán automáticamente
 5. Selecciona tu centro de la lista desplegable
-6. Guarda los cambios nuevamente
+6. (Opcional) Introduce la **URL de Reservas** de tu centro desde TIMP (Módulos > Web de reservas)
+7. Guarda los cambios nuevamente
 
 ## 📝 Uso
 
@@ -101,6 +102,7 @@ Para mostrar las sesiones en cualquier página o entrada:
 - ✅ Carga dinámica - AJAX sin recargar la página
 - ✅ Gestión de errores - Mensajes claros de error
 - ✅ Descripciones expandibles - Muestra/oculta información adicional de cada sesión
+- ✅ Botón de reserva - Enlace directo a la web de reservas de TIMP (configurable)
 - ✅ Colores de marca - Integración con los colores corporativos del centro
 
 ## 📊 Información Mostrada

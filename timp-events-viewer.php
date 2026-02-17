@@ -4,7 +4,7 @@
  * Plugin Name: TIMP Events Viewer
  * Plugin URI: https://github.com/nfortea/timp-events-viewer/
  * Description: Muestra eventos de TIMP con navegación por semanas
- * Version: 1.2.0
+ * Version: 1.3.0
  * Author: Nacho Fortea
  * Author URI: https://planeasoluciones.com
  * License: GPL v2 or later
@@ -51,6 +51,7 @@ class TIMP_Events_Plugin
     {
         register_setting('timp_events_settings', 'timp_api_key');
         register_setting('timp_events_settings', 'timp_center_uuid');
+        register_setting('timp_events_settings', 'timp_booking_url');
     }
 
     // Manejar obtención de centros
@@ -211,6 +212,20 @@ class TIMP_Events_Plugin
                         </td>
                     </tr>
                     <?php endif; ?>
+                    <tr>
+                        <th scope="row">
+                            <label for="timp_booking_url">URL de Reservas</label>
+                        </th>
+                        <td>
+                            <input type="url"
+                                id="timp_booking_url"
+                                name="timp_booking_url"
+                                value="<?php echo esc_attr(get_option('timp_booking_url')); ?>"
+                                class="regular-text"
+                                placeholder="https://web.timp.pro/home/XXXX/branch_building/siblings">
+                            <p class="description">URL de la web de reservas de TIMP. Se encuentra en el panel de TIMP: Módulos > Web de reservas. Si se configura, aparecerá un botón "Reservar" en cada sesión disponible.</p>
+                        </td>
+                    </tr>
                 </table>
                 <?php submit_button(); ?>
             </form>
@@ -314,7 +329,8 @@ class TIMP_Events_Plugin
 
             wp_localize_script('timp-events-script', 'timpEvents', array(
                 'ajaxurl' => admin_url('admin-ajax.php'),
-                'nonce' => wp_create_nonce('timp_events_nonce')
+                'nonce' => wp_create_nonce('timp_events_nonce'),
+                'bookingUrl' => get_option('timp_booking_url', '')
             ));
         }
     }

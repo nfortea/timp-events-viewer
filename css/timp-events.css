@@ -284,12 +284,12 @@
 }
 
 .timp-badge-full {
-    background-color: #ffc107;
-    color: #000;
+    background-color: #926e38;
+    color: white;
 }
 
 .timp-badge-warning {
-    background-color: #ff9800;
+    background-color: #c2b280;
     color: white;
 }
 
@@ -344,6 +344,28 @@
     background-color: #fff3e0;
     color: #e65100;
     font-weight: 600;
+}
+
+/* Botón Reservar */
+.timp-booking-btn {
+    display: block;
+    width: fit-content;
+    margin-top: 12px;
+    margin-left: auto;
+    padding: 8px 20px;
+    background-color: #3f4041;
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.timp-booking-btn:hover {
+    background-color: #202426;
 }
 
 /* Responsive */
