@@ -93,14 +93,15 @@ Para mostrar las sesiones en cualquier página o entrada:
 ## 🎨 Características
 
 - ✅ Navegación por semanas - Botones para avanzar y retroceder
-- ✅ Vista de semana actual - Muestra "Esta semana" por defecto
-- ✅ Agrupación por día - Organiza sesiones automáticamente
+- ✅ Selector de día - Botones L, M, X, J, V, S con número de día para ver sesiones por día
+- ✅ Vista de semana actual - Muestra "Esta semana" y selecciona el día actual por defecto
 - ✅ Diseño responsive - Funciona en móvil, tablet y desktop
 - ✅ Información completa - Muestra instructor, sala, duración, plazas
 - ✅ Indicadores visuales - Badges para sesiones completas o canceladas
 - ✅ Carga dinámica - AJAX sin recargar la página
 - ✅ Gestión de errores - Mensajes claros de error
 - ✅ Descripciones expandibles - Muestra/oculta información adicional de cada sesión
+- ✅ Colores de marca - Integración con los colores corporativos del centro
 
 ## 📊 Información Mostrada
 

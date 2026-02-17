@@ -115,6 +115,49 @@
     margin: 0;
 }
 
+/* Selector de días */
+.timp-day-selector {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.timp-day-btn {
+    padding-top: 10px !important;
+    padding-right: 20px !important;
+    padding-bottom: 10px !important;
+    padding-left: 20px !important;
+    color: #FFFFFF !important;
+    border-width: 0px !important;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    font-size: 15px;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    background-color: #3f4041;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.timp-day-btn:hover {
+    background-color: #c2b280;
+}
+
+.timp-day-btn-active {
+    background-color: #926e38;
+}
+
+.timp-day-btn-empty {
+    opacity: 0.35;
+    cursor: default;
+}
+
+.timp-day-btn-empty:hover {
+    background-color: #3f4041;
+}
+
 /* Grupo de eventos por día */
 .timp-day-group {
     margin-bottom: 40px;
@@ -126,7 +169,7 @@
     color: #333;
     margin-bottom: 15px;
     padding: 12px 0;
-    border-bottom: 3px solid #2271b1;
+    border-bottom: 3px solid #926e38;
     display: flex;
     justify-content: space-between;
     align-items: baseline;

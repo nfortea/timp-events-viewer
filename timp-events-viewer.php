@@ -4,7 +4,7 @@
  * Plugin Name: TIMP Events Viewer
  * Plugin URI: https://github.com/nfortea/timp-events-viewer/
  * Description: Muestra eventos de TIMP con navegación por semanas
- * Version: 1.1.1
+ * Version: 1.2.0
  * Author: Nacho Fortea
  * Author URI: https://planeasoluciones.com
  * License: GPL v2 or later
@@ -561,6 +561,8 @@ class TIMP_Events_Plugin
                 <button class="et_pb_button et_pb_bg_layout_light" id="timp-next-week">Semana Siguiente &rarr;</button>
                 <!-- <button class="timp-nav-btn" id="timp-next-week">Semana Siguiente &rarr;</button> -->
             </div>
+
+            <div class="timp-day-selector"></div>
 
             <div class="timp-events-loading" style="display: none;">
                 <div class="timp-spinner"></div>
