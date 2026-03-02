@@ -2,11 +2,11 @@
 
 Plugin oficial para mostrar sesiones/eventos de TIMP con navegación por semanas. Integración directa con la API de TIMP v1.
 
-## 📌 Versión Actual: ..11.3.1
+## 📌 Versión Actual: 1.3.2
 
 ## 📜 Changelog
 
-### [..1] - 2026-03-02
+### [1.3.2] - 2026-03-02
 
 #### Cambios
 
