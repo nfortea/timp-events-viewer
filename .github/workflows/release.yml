@@ -11,8 +11,10 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-    # Evita que se ejecute en commits del propio bot
-    if: "!contains(github.event.head_commit.message, 'chore: bump version')"
+    # Evita ejecución en commits del bot o marcados con [skip-release]
+    if: >-
+      !contains(github.event.head_commit.message, 'chore: bump version') &&
+      !contains(github.event.head_commit.message, '[skip-release]')
     permissions:
       contents: write
 
