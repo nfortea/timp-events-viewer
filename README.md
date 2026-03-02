@@ -2,9 +2,16 @@
 
 Plugin oficial para mostrar sesiones/eventos de TIMP con navegación por semanas. Integración directa con la API de TIMP v1.
 
-## 📌 Versión Actual: 1.3.1
+## 📌 Versión Actual: ..11.3.1
 
 ## 📜 Changelog
+
+### [..1] - 2026-03-02
+
+#### Cambios
+
+* Elimina badge 'Pocas plazas', solo se muestra badge en clases completas
+
 
 ### [1.3.1] - 2026-02-17
 
