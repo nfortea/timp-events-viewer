@@ -276,11 +276,6 @@
     color: white;
 }
 
-.timp-badge-warning {
-    background-color: #c2b280;
-    color: white;
-}
-
 /* Información de la sesión */
 .timp-event-activity,
 .timp-event-instructor,

@@ -236,8 +236,6 @@
             html += '<span class="timp-badge timp-badge-cancelled">Cancelada</span>';
         } else if (isFull) {
             html += '<span class="timp-badge timp-badge-full">Completa</span>';
-        } else if (available <= 3) {
-            html += '<span class="timp-badge timp-badge-warning">Pocas plazas</span>';
         }
 
         html += '</div>';
