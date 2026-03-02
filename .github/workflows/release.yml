@@ -1,0 +1,117 @@
+name: Auto versioning & Release
+
+on:
+  push:
+    branches:
+      - main
+    # Ignora pushes que ya son del propio bot (evita bucle infinito)
+    paths-ignore:
+      - '.github/**'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    # Evita que se ejecute en commits del propio bot
+    if: "!contains(github.event.head_commit.message, 'chore: bump version')"
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Leer versión actual del plugin
+        id: current
+        run: |
+          VERSION=$(grep -oP "(?<=Version:\s{1,10})\d+\.\d+\.\d+" timp-events-viewer.php | head -1)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Versión actual: $VERSION"
+
+      - name: Calcular nueva versión
+        id: bump
+        run: |
+          VERSION="${{ steps.current.outputs.version }}"
+          MAJOR=$(echo $VERSION | cut -d. -f1)
+          MINOR=$(echo $VERSION | cut -d. -f2)
+          PATCH=$(echo $VERSION | cut -d. -f3)
+          
+          MSG="${{ github.event.head_commit.message }}"
+          
+          if echo "$MSG" | grep -qi "\[major\]"; then
+            MAJOR=$((MAJOR + 1)); MINOR=0; PATCH=0
+          elif echo "$MSG" | grep -qi "\[minor\]"; then
+            MINOR=$((MINOR + 1)); PATCH=0
+          else
+            PATCH=$((PATCH + 1))
+          fi
+          
+          NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          echo "Nueva versión: $NEW_VERSION"
+
+      - name: Actualizar versión en timp-events-viewer.php
+        run: |
+          NEW="${{ steps.bump.outputs.new_version }}"
+          OLD="${{ steps.current.outputs.version }}"
+          # Actualiza el header del plugin (línea "Version: X.X.X")
+          sed -i "s/Version:\([ \t]*\)${OLD}/Version:\1${NEW}/" timp-events-viewer.php
+          # Actualiza la constante de versión si existe (TIMP_EVENTS_VERSION)
+          sed -i "s/define( *'TIMP_EVENTS_VERSION', *'${OLD}'/define('TIMP_EVENTS_VERSION', '${NEW}'/" timp-events-viewer.php
+
+      - name: Actualizar versión en README.md
+        run: |
+          NEW="${{ steps.bump.outputs.new_version }}"
+          OLD="${{ steps.current.outputs.version }}"
+          sed -i "s/Versión Actual: ${OLD}/Versión Actual: ${NEW}/" README.md
+          # Añade entrada en el Changelog
+          TODAY=$(date +%Y-%m-%d)
+          COMMIT_MSG="${{ github.event.head_commit.message }}"
+          sed -i "/## 📜 Changelog/a \\\n### [${NEW}] - ${TODAY}\n\n#### Cambios\n\n* ${COMMIT_MSG}\n" README.md
+
+      - name: Commit de la nueva versión
+        run: |
+          NEW="${{ steps.bump.outputs.new_version }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add timp-events-viewer.php README.md
+          git commit -m "chore: bump version to v${NEW}"
+          git push
+
+      - name: Crear ZIP del plugin para la release
+        run: |
+          NEW="${{ steps.bump.outputs.new_version }}"
+          mkdir -p dist
+          zip -r "dist/timp-events-viewer-v${NEW}.zip" \
+            timp-events-viewer.php \
+            css/ \
+            js/ \
+            README.md \
+            --exclude "*.git*"
+          echo "ZIP creado: dist/timp-events-viewer-v${NEW}.zip"
+
+      - name: Crear Tag
+        run: |
+          NEW="${{ steps.bump.outputs.new_version }}"
+          git tag "v${NEW}"
+          git push origin "v${NEW}"
+
+      - name: Crear GitHub Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          NEW="${{ steps.bump.outputs.new_version }}"
+          COMMIT_MSG="${{ github.event.head_commit.message }}"
+          
+          gh release create "v${NEW}" \
+            "dist/timp-events-viewer-v${NEW}.zip" \
+            --title "v${NEW}" \
+            --notes "## Cambios en v${NEW}
+
+          ${COMMIT_MSG}
+
+          ---
+          📦 Descarga el ZIP adjunto e instálalo directamente en WordPress desde **Plugins > Añadir nuevo > Subir plugin**." \
+            --latest
