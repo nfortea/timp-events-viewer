@@ -26,7 +26,7 @@ jobs:
       - name: Leer versión actual del plugin
         id: current
         run: |
-          VERSION=$(grep -oP "(?<=Version:\s{1,10})\d+\.\d+\.\d+" timp-events-viewer.php | head -1)
+          VERSION=$(grep -oP "Version:\s*\K\d+\.\d+\.\d+" timp-events-viewer.php | head -1)
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Versión actual: $VERSION"
 
