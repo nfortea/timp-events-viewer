@@ -4,7 +4,7 @@
  * Plugin Name: TIMP Events Viewer
  * Plugin URI: https://github.com/nfortea/timp-events-viewer/
  * Description: Muestra eventos de TIMP con navegación por semanas
- * Version: 1.3.3
+ * Version: 1.3.4
  * Author: Nacho Fortea
  * Author URI: https://planeasoluciones.com
  * License: GPL v2 or later

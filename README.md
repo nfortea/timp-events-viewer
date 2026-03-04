@@ -2,9 +2,16 @@
 
 Plugin oficial para mostrar sesiones/eventos de TIMP con navegación por semanas. Integración directa con la API de TIMP v1.
 
-## 📌 Versión Actual: 1.3.3
+## 📌 Versión Actual: 1.3.4
 
 ## 📜 Changelog
+
+### [1.3.4] - 2026-03-04
+
+#### Cambios
+
+* Mueve botón Reservar a la misma línea que duración y aforo para reducir altura de tarjetas
+
 
 ### [1.3.3] - 2026-03-02
 
