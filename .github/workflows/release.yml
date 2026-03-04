@@ -85,13 +85,13 @@ jobs:
       - name: Crear ZIP del plugin para la release
         run: |
           NEW="${{ steps.bump.outputs.new_version }}"
-          mkdir -p dist
-          zip -r "dist/timp-events-viewer-v${NEW}.zip" \
-            timp-events-viewer.php \
-            css/ \
-            js/ \
-            README.md \
-            --exclude "*.git*"
+          mkdir -p dist/timp-events-viewer
+          cp timp-events-viewer.php dist/timp-events-viewer/
+          cp -r css/ js/ README.md dist/timp-events-viewer/
+          cd dist
+          zip -r "timp-events-viewer-v${NEW}.zip" timp-events-viewer/
+          rm -rf timp-events-viewer
+          cd ..
           echo "ZIP creado: dist/timp-events-viewer-v${NEW}.zip"
 
       - name: Crear Tag
