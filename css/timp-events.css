@@ -304,6 +304,7 @@
     gap: 15px;
     margin-top: 10px;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .timp-meta-item {
@@ -331,9 +332,6 @@
 
 /* Botón Reservar */
 .timp-booking-btn {
-    display: block;
-    width: fit-content;
-    margin-top: 12px;
     margin-left: auto;
     padding: 8px 20px;
     background-color: #3f4041;
